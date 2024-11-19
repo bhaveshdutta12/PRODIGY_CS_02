@@ -1,4 +1,4 @@
-# PRODIGY_CS_03
+# PRODIGY_CS_02
 # Pixel Manipulation For Image Encryption
 
 This project is a simple Python tool that uses a key to encrypt and decrypt images. It modifies the pixel values of an image based on a pseudo-random sequence generated from the key, allowing the image to be encrypted. The same key can be used to decrypt the image back to its original form.
