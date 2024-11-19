@@ -1,29 +1,61 @@
-# Password Complexity Checker Tool
+# PRODIGY_CS_03
+# Pixel Manipulation For Image Encryption
 
-This project is a simple Python-based tool that evaluates the strength of a password. It checks the password against several criteria such as length, the inclusion of uppercase and lowercase letters, numbers, and special characters. The tool also provides feedback to the user on how they can improve their password.
+This project is a simple Python tool that uses a key to encrypt and decrypt images. It modifies the pixel values of an image based on a pseudo-random sequence generated from the key, allowing the image to be encrypted. The same key can be used to decrypt the image back to its original form.
 
 ## Features
 
-- **Length Check**: Password must be at least 8 characters long.
-- **Lowercase Letters**: Ensures the password contains at least one lowercase letter.
-- **Uppercase Letters**: Ensures the password contains at least one uppercase letter.
-- **Numbers**: Ensures the password contains at least one number.
-- **Special Characters**: Ensures the password contains at least one special character from the set `!@#$%^&*(),.?":{}|<>`.
-- **Feedback**: Provides suggestions on improving the password if it is weak or moderate.
+- **Encryption**: Encrypts an image by manipulating its RGB pixel values based on a random sequence generated from a user-provided key.
+- **Decryption**: Decrypts the image by reversing the encryption process using the same key.
+- **Key-based Security**: The key ensures that only someone with the correct key can decrypt the image.
 
-## How to Use
+## How It Works
 
-1. Clone this repository to your local machine.
+1. **Encryption**:
+   - The image is opened, and its pixel values are modified by adding random values (generated using the key) to each RGB channel.
+   - The encrypted image is saved as a new file with `_encrypted` appended to its name.
 
+2. **Decryption**:
+   - The encrypted image is opened, and the same random values (generated using the key) are subtracted from each RGB channel to restore the original image.
+   - The decrypted image is saved as a new file with `_decrypted` appended to its name.
+
+## Prerequisites
+
+- Python 3.x
+- [Pillow (PIL)](https://pillow.readthedocs.io/) library for image manipulation
+
+To install Pillow, use the following command:
+
+```bash
+pip install pillow
+```
+# How to Use
+1. Clone this repository:
 ```bash
 git clone <repository_url>
 ```
-2. Navigate to the project directory.
+2. Navigate to the project directory:
 ```bash
-cd PRODIGY_CS_02
+cd PROJECT_DIR
 ```
-3. Run the script.
+3. Place the image you want to encrypt in the same directory.
+4. Run the encryption and decryption script:
 ```bash
-python3 PRODIGY_CS_02.py
+python3 PRODIGY_CS_03.py
 ```
-4.Input the password when prompted, and the tool will provide the strength assessment and feedback.
+# Example Usage
+1. Encryption:
+```bash
+key = 12345  # Use a secret key for encryption and decryption
+encrypt_image("example.jpg", key)
+```
+This will generate an encrypted image named example_encrypted.png.
+2. Decryption:
+```bash
+decrypt_image("example_encrypted.png", key)
+```
+This will decrypt the image and generate a file named example_decrypted.png.
+
+# Customization
+* You can change the key used for encryption and decryption by modifying the key variable in the script. The same key must be used for both processes.
+* The script currently supports PNG and JPEG formats, but it can be extended to support other formats supported by the Pillow library.
